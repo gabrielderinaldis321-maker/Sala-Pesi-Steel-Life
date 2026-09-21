@@ -9,7 +9,7 @@
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --accent-orange: #f97316;
-            --accent-pink: #ec4899;
+            --accent-red: #ef4444;
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #334155;
@@ -129,24 +129,43 @@
             color: #000;
         }
 
+        .actions-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
         .btn-book {
-            display: block;
-            width: 100%;
+            flex: 1;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: none;
             padding: 14px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 25px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
             transition: opacity 0.2s;
         }
 
-        .btn-book:hover {
+        .btn-cancel {
+            flex: 1;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+            transition: opacity 0.2s;
+        }
+
+        .btn-book:hover, .btn-cancel:hover {
             opacity: 0.9;
         }
 
@@ -181,7 +200,7 @@
     <div class="container">
         <header>
             <h1>🏋️ Prenotazione Sala Pesi</h1>
-            <p>Seleziona il giorno, la fascia oraria e invia la richiesta su WhatsApp</p>
+            <p>Seleziona il giorno, l'orario e gestisci la tua prenotazione su WhatsApp</p>
         </header>
 
         <!-- Selezione Giorno -->
@@ -200,7 +219,7 @@
             </div>
 
             <div class="form-group">
-                <label for="trainerPhone">Invia richiesta a:</label>
+                <label for="trainerPhone">Contatta referente:</label>
                 <select id="trainerPhone">
                     <option value="393281814024">Ciro Morra (+39 328 181 4024)</option>
                     <option value="393484743769">Anna Corato (+39 348 474 3769)</option>
@@ -212,7 +231,10 @@
                 <!-- Generate via JavaScript -->
             </div>
 
-            <button class="btn-book" onclick="sendBooking()">Invia Prenotazione su WhatsApp</button>
+            <div class="actions-container">
+                <button class="btn-book" onclick="sendBooking()">Prenota</button>
+                <button class="btn-cancel" onclick="sendCancellation()">Disdici</button>
+            </div>
         </div>
     </div>
 
@@ -220,7 +242,6 @@
         let currentDay = 'Lunedì';
         let selectedSlot = null;
 
-        // Fasce orarie dalle 07:00 alle 21:00
         const timeSlots = [
             "07:00 - 08:00",
             "08:00 - 09:00",
@@ -238,7 +259,7 @@
             "20:00 - 21:00"
         ];
 
-        const MAX_CAPACITY = 6; // Capienza massima fissata a 6 persone per slot
+        const MAX_CAPACITY = 6;
 
         function setDay(day) {
             currentDay = day;
@@ -305,23 +326,47 @@
                 return;
             }
 
-            // Aggiorna il contatore locale
             const storageKey = getStorageKey(selectedSlot);
             localStorage.setItem(storageKey, currentBooked + 1);
 
-            // Prepara il messaggio WhatsApp
             const message = `🏋️ *NUOVA PRENOTAZIONE SALA PESI*%0A👤 Utente: *${encodeURIComponent(name)}*%0A📅 Giorno: *${currentDay}*%0A⏰ Orario: *${selectedSlot}*`;
             
-            // Apre WhatsApp con il numero del referente scelto
             const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
             window.open(whatsappUrl, '_blank');
 
-            // Resetta la selezione
             selectedSlot = null;
             renderSlots();
         }
 
-        // Inizializza la pagina
+        function sendCancellation() {
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('trainerPhone').value;
+
+            if (!name) {
+                alert('Inserisci il tuo nome e cognome prima di procedere con la disdetta.');
+                return;
+            }
+
+            if (!selectedSlot) {
+                alert('Seleziona la fascia oraria che vuoi disdire.');
+                return;
+            }
+
+            const currentBooked = getBookedCount(selectedSlot);
+            if (currentBooked > 0) {
+                const storageKey = getStorageKey(selectedSlot);
+                localStorage.setItem(storageKey, currentBooked - 1);
+            }
+
+            const message = `❌ *ANNULLAMENTO PRENOTAZIONE SALA PESI*%0A👤 Utente: *${encodeURIComponent(name)}*%0A📅 Giorno: *${currentDay}*%0A⏰ Orario: *${selectedSlot}*`;
+            
+            const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+
+            selectedSlot = null;
+            renderSlots();
+        }
+
         renderSlots();
     </script>
 </body>
