@@ -203,13 +203,14 @@
             <p>Seleziona il giorno, l'orario e gestisci la tua prenotazione su WhatsApp</p>
         </header>
 
-        <!-- Selezione Giorno -->
+        <!-- Selezione Giorno (Lun-Sab) -->
         <div class="day-selector" id="daySelector">
             <button class="day-btn active" onclick="setDay('Lunedì')">Lunedì</button>
             <button class="day-btn" onclick="setDay('Martedì')">Martedì</button>
             <button class="day-btn" onclick="setDay('Mercoledì')">Mercoledì</button>
             <button class="day-btn" onclick="setDay('Giovedì')">Giovedì</button>
             <button class="day-btn" onclick="setDay('Venerdì')">Venerdì</button>
+            <button class="day-btn" onclick="setDay('Sabato')">Sabato</button>
         </div>
 
         <div class="card">
@@ -226,7 +227,7 @@
                 </select>
             </div>
 
-            <label>Fasce Orarie Disponibili (Lunedì - Venerdì, 07:00 - 21:00)</label>
+            <label>Fasce Orarie Disponibili</label>
             <div class="slots-container" id="slotsContainer">
                 <!-- Generato dinamicamente via JavaScript -->
             </div>
@@ -242,7 +243,8 @@
         let currentDay = 'Lunedì';
         let selectedSlot = null;
 
-        const timeSlots = [
+        // Orari feriali (Lun-Ven: 07:00 - 21:00)
+        const weekdaysSlots = [
             "07:00 - 08:00",
             "08:00 - 09:00",
             "09:00 - 10:00",
@@ -257,6 +259,16 @@
             "18:00 - 19:00",
             "19:00 - 20:00",
             "20:00 - 21:00"
+        ];
+
+        // Orari del sabato (07:00 - 13:00)
+        const saturdaySlots = [
+            "07:00 - 08:00",
+            "08:00 - 09:00",
+            "09:00 - 10:00",
+            "10:00 - 11:00",
+            "11:00 - 12:00",
+            "12:00 - 13:00"
         ];
 
         const MAX_CAPACITY = 6;
@@ -283,7 +295,10 @@
             const container = document.getElementById('slotsContainer');
             container.innerHTML = '';
 
-            timeSlots.forEach(slot => {
+            // Seleziona l'array di orari in base al giorno (Sabato o giorni feriali)
+            const activeSlots = (currentDay === 'Sabato') ? saturdaySlots : weekdaysSlots;
+
+            activeSlots.forEach(slot => {
                 const booked = getBookedCount(slot);
                 const available = MAX_CAPACITY - booked;
                 const isSelected = selectedSlot === slot;
