@@ -14,7 +14,6 @@
             --text-muted: #94a3b8;
             --border-color: #334155;
         }
-
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg-color);
@@ -22,188 +21,36 @@
             margin: 0;
             padding: 20px;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            color: var(--accent-orange);
-            margin-bottom: 5px;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background-color: #0f172a;
-            color: #fff;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        .slots-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .slot-card {
-            background-color: #0f172a;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-
-        .slot-card.selected {
-            border-color: var(--accent-orange);
-            background-color: rgba(249, 115, 22, 0.1);
-        }
-
-        .slot-time {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .slot-availability {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .btn-select {
-            background-color: var(--border-color);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            transition: background 0.2s;
-        }
-
-        .slot-card.selected .btn-select {
-            background-color: var(--accent-orange);
-            color: #000;
-        }
-
-        .actions-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .btn-book {
-            flex: 1;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            transition: opacity 0.2s;
-        }
-
-        .btn-cancel {
-            flex: 1;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
-            transition: opacity 0.2s;
-        }
-
-        .btn-book:hover, .btn-cancel:hover {
-            opacity: 0.9;
-        }
-
-        .day-selector {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-
-        .day-btn {
-            background-color: var(--card-bg);
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .day-btn.active {
-            background-color: var(--accent-orange);
-            color: #000;
-            border-color: var(--accent-orange);
-        }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; }
+        header h1 { color: var(--accent-orange); margin-bottom: 5px; font-size: 1.8rem; text-transform: uppercase; }
+        header p { color: var(--text-muted); font-size: 0.95rem; }
+        .card { background-color: var(--card-bg); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid var(--border-color); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 0.9rem; color: var(--text-muted); }
+        input, select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background-color: #0f172a; color: #fff; font-size: 1rem; box-sizing: border-box; }
+        .slots-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 15px; }
+        .slot-card { background-color: #0f172a; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-align: center; }
+        .slot-card.selected { border-color: var(--accent-orange); background-color: rgba(249, 115, 22, 0.1); }
+        .slot-time { font-weight: bold; font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
+        .slot-availability { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+        .btn-select { background-color: var(--border-color); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
+        .slot-card.selected .btn-select { background-color: var(--accent-orange); color: #000; }
+        .actions-container { display: flex; gap: 10px; margin-top: 25px; }
+        .btn-book { flex: 1; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+        .btn-cancel { flex: 1; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+        .day-selector { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 5px; margin-bottom: 20px; }
+        .day-btn { background-color: var(--card-bg); color: var(--text-muted); border: 1px solid var(--border-color); padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; white-space: nowrap; }
+        .day-btn.active { background-color: var(--accent-orange); color: #000; border-color: var(--accent-orange); }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>🏋️ Prenotazione Sala Pesi</h1>
             <p>Seleziona il giorno, l'orario e gestisci la tua prenotazione su WhatsApp</p>
         </header>
 
-        <!-- Selezione Giorno (Lun-Sab) -->
         <div class="day-selector" id="daySelector">
             <button class="day-btn active" onclick="setDay('Lunedì')">Lunedì</button>
             <button class="day-btn" onclick="setDay('Martedì')">Martedì</button>
@@ -228,9 +75,7 @@
             </div>
 
             <label>Fasce Orarie Disponibili</label>
-            <div class="slots-container" id="slotsContainer">
-                <!-- Generato dinamicamente via JavaScript -->
-            </div>
+            <div class="slots-container" id="slotsContainer"></div>
 
             <div class="actions-container">
                 <button class="btn-book" onclick="sendBooking()">Prenota</button>
@@ -242,144 +87,63 @@
     <script>
         let currentDay = 'Lunedì';
         let selectedSlot = null;
-
-        // Orari feriali (Lun-Ven: 07:00 - 21:00)
-        const weekdaysSlots = [
-            "07:00 - 08:00",
-            "08:00 - 09:00",
-            "09:00 - 10:00",
-            "10:00 - 11:00",
-            "11:00 - 12:00",
-            "12:00 - 13:00",
-            "13:00 - 14:00",
-            "14:00 - 15:00",
-            "15:00 - 16:00",
-            "16:00 - 17:00",
-            "17:00 - 18:00",
-            "18:00 - 19:00",
-            "19:00 - 20:00",
-            "20:00 - 21:00"
-        ];
-
-        // Orari del sabato (07:00 - 13:00)
-        const saturdaySlots = [
-            "07:00 - 08:00",
-            "08:00 - 09:00",
-            "09:00 - 10:00",
-            "10:00 - 11:00",
-            "11:00 - 12:00",
-            "12:00 - 13:00"
-        ];
-
+        const weekdaysSlots = ["07:00 - 08:00", "08:00 - 09:00", "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00", "14:00 - 15:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00", "18:00 - 19:00", "19:00 - 20:00", "20:00 - 21:00"];
+        const saturdaySlots = ["07:00 - 08:00", "08:00 - 09:00", "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00"];
         const MAX_CAPACITY = 6;
 
         function setDay(day) {
             currentDay = day;
             selectedSlot = null;
-            document.querySelectorAll('.day-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.textContent === day);
-            });
+            document.querySelectorAll('.day-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === day));
             renderSlots();
         }
 
-        function getStorageKey(slot) {
-            return `sala_pesi_${currentDay}_${slot}`;
-        }
-
-        function getBookedCount(slot) {
-            const count = localStorage.getItem(getStorageKey(slot));
-            return count ? parseInt(count) : 0;
-        }
+        function getStorageKey(slot) { return `sala_pesi_${currentDay}_${slot}`; }
+        function getBookedCount(slot) { const count = localStorage.getItem(getStorageKey(slot)); return count ? parseInt(count) : 0; }
 
         function renderSlots() {
             const container = document.getElementById('slotsContainer');
             container.innerHTML = '';
-
-            // Seleziona l'array di orari in base al giorno (Sabato o giorni feriali)
             const activeSlots = (currentDay === 'Sabato') ? saturdaySlots : weekdaysSlots;
 
             activeSlots.forEach(slot => {
                 const booked = getBookedCount(slot);
                 const available = MAX_CAPACITY - booked;
                 const isSelected = selectedSlot === slot;
-
                 const card = document.createElement('div');
                 card.className = `slot-card ${isSelected ? 'selected' : ''}`;
                 card.innerHTML = `
                     <div class="slot-time">⏰ ${slot}</div>
                     <div class="slot-availability">Disponibili: <strong>${available > 0 ? available : 0}</strong> / ${MAX_CAPACITY}</div>
-                    <button class="btn-select" onclick="selectSlot('${slot}')">
-                        ${isSelected ? 'Selezionato' : 'Seleziona'}
-                    </button>
+                    <button class="btn-select" onclick="selectSlot('${slot}')">${isSelected ? 'Selezionato' : 'Seleziona'}</button>
                 `;
                 container.appendChild(card);
             });
         }
 
-        function selectSlot(slot) {
-            selectedSlot = slot;
-            renderSlots();
-        }
+        function selectSlot(slot) { selectedSlot = slot; renderSlots(); }
 
         function sendBooking() {
             const name = document.getElementById('userName').value.trim();
             const phone = document.getElementById('trainerPhone').value;
-
-            if (!name) {
-                alert('Inserisci il tuo nome e cognome prima di procedere.');
-                return;
-            }
-
-            if (!selectedSlot) {
-                alert('Seleziona una fascia oraria.');
-                return;
-            }
-
+            if (!name) { alert('Inserisci il tuo nome e cognome.'); return; }
+            if (!selectedSlot) { alert('Seleziona una fascia oraria.'); return; }
             const currentBooked = getBookedCount(selectedSlot);
-            if (currentBooked >= MAX_CAPACITY) {
-                alert('Spiacenti, questo orario ha raggiunto il limite massimo di 6 persone.');
-                return;
-            }
-
-            const storageKey = getStorageKey(selectedSlot);
-            localStorage.setItem(storageKey, currentBooked + 1);
-
-            const message = `🏋️ *NUOVA PRENOTAZIONE SALA PESI*%0A👤 Utente: *${encodeURIComponent(name)}*%0A📅 Giorno: *${currentDay}*%0A⏰ Orario: *${selectedSlot}*`;
-            
-            const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-
-            selectedSlot = null;
-            renderSlots();
+            if (currentBooked >= MAX_CAPACITY) { alert('Limite massimo raggiunto.'); return; }
+            localStorage.setItem(getStorageKey(selectedSlot), currentBooked + 1);
+            window.open(`https://wa.me/${phone}?text=🏋️ *PRENOTAZIONE*%0A👤 *${encodeURIComponent(name)}*%0A📅 *${currentDay}* - *${selectedSlot}*`, '_blank');
+            selectedSlot = null; renderSlots();
         }
 
         function sendCancellation() {
             const name = document.getElementById('userName').value.trim();
             const phone = document.getElementById('trainerPhone').value;
-
-            if (!name) {
-                alert('Inserisci il tuo nome e cognome prima di procedere con la disdetta.');
-                return;
-            }
-
-            if (!selectedSlot) {
-                alert('Seleziona la fascia oraria che vuoi disdire.');
-                return;
-            }
-
+            if (!name) { alert('Inserisci il tuo nome e cognome.'); return; }
+            if (!selectedSlot) { alert('Seleziona la fascia oraria da disdire.'); return; }
             const currentBooked = getBookedCount(selectedSlot);
-            if (currentBooked > 0) {
-                const storageKey = getStorageKey(selectedSlot);
-                localStorage.setItem(storageKey, currentBooked - 1);
-            }
-
-            const message = `❌ *ANNULLAMENTO PRENOTAZIONE SALA PESI*%0A👤 Utente: *${encodeURIComponent(name)}*%0A📅 Giorno: *${currentDay}*%0A⏰ Orario: *${selectedSlot}*`;
-            
-            const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-
-            selectedSlot = null;
-            renderSlots();
+            if (currentBooked > 0) { localStorage.setItem(getStorageKey(selectedSlot), currentBooked - 1); }
+            window.open(`https://wa.me/${phone}?text=❌ *DISDETTA*%0A👤 *${encodeURIComponent(name)}*%0A📅 *${currentDay}* - *${selectedSlot}*`, '_blank');
+            selectedSlot = null; renderSlots();
         }
 
         renderSlots();
